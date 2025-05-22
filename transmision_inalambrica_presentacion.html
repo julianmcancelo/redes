@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Transmisión Inalámbrica - Grupo 4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/black.css" id="theme">
+  <style>
+    :root {
+      --main-font: 'Arial', sans-serif;
+      --highlight-color: #00c8ff; /* Celeste para títulos */
+      --accent-color: #ffd700;   /* Dorado para destacar */
+      --text-color: #f0f0f0;     /* Un blanco no tan puro para mejor lectura */
+      --background-color: #1c1c1c;
+      --base-font-size: 16px; /* Base para cálculos rem/em en un contexto más amplio */
+    }
+
+    .reveal {
+        font-size: var(--base-font-size); /* Ayuda a escalar en mobile */
+    }
+
+    .reveal .slides section {
+      font-family: var(--main-font);
+      color: var(--text-color);
+      box-sizing: border-box; /* Para que padding no aumente el tamaño total */
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+      color: var(--highlight-color);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      word-wrap: break-word; /* Evitar overflow en títulos largos */
+    }
+    .reveal h1 { font-size: 2.2em; }
+    .reveal h2 { font-size: 1.8em; }
+    .reveal h3 { font-size: 1.3em; }
+
+
+    .reveal p, .reveal li {
+      font-size: 0.95em; /* Aumentamos un poco para legibilidad, reveal.js maneja escala general */
+      line-height: 1.45;
+      word-wrap: break-word;
+    }
+
+    .reveal strong, .reveal .highlight {
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .reveal .slide-caption {
+        font-size: 0.6em;
+        color: #bbb;
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .reveal ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 15px;
+    }
+    .reveal ul li {
+        padding-left: 1.6em;
+        text-indent: -1.5em;
+        margin-bottom: 0.7em; /* Más espacio entre ítems */
+    }
+    .reveal ul li::before {
+        content: "▹ ";
+        color: var(--highlight-color);
+        margin-right: 0.5em;
+        font-size: 1.2em; /* Hacer el bullet un poco más grande */
+    }
+    .reveal ul ul { /* Sub-listas */
+        margin-left: 1.5em;
+        margin-top: 0.5em;
+        font-size: 0.9em;
+    }
+    .reveal ul ul li::before {
+        content: "▪ ";
+        color: var(--accent-color);
+    }
+
+    .table-responsive-wrapper {
+        width: 100%;
+        overflow-x: auto; /* ESTO ES CLAVE PARA TABLAS EN MOBILE */
+        margin: 15px 0;
+    }
+    .comparison-table {
+        width: 100%; /* La tabla ocupa el 100% de su contenedor */
+        min-width: 600px; /* Evita que la tabla se comprima demasiado, forzando scroll si es necesario */
+        border-collapse: collapse;
+    }
+    .comparison-table th, .comparison-table td {
+        border: 1px solid var(--highlight-color);
+        padding: 10px; /* Más padding para lectura */
+        text-align: left;
+        font-size: 0.65em; /* Reducido para que quepa más info */
+        vertical-align: top; /* Alinear contenido arriba */
+    }
+    .comparison-table th {
+        background-color: #333;
+        color: var(--highlight-color);
+        font-size: 0.7em;
+    }
+    .comparison-table td {
+        background-color: #222;
+    }
+    .comparison-table small { /* Para notas dentro de las tablas */
+        font-size: 0.9em;
+        display: block;
+        margin-top: 3px;
+        color: #ccc;
+    }
+
+    /* Mejoras para mobile */
+    @media screen and (max-width: 768px) {
+      .reveal {
+        font-size: 14px; /* Reducir tamaño base en pantallas más chicas */
+      }
+      .reveal h1 { font-size: 1.8em; }
+      .reveal h2 { font-size: 1.5em; }
+      .reveal h3 { font-size: 1.1em; }
+      .reveal p, .reveal li { font-size: 0.9em; }
+
+      .reveal ul li {
+          padding-left: 1.2em; /* Ajustar indentación para mobile */
+          margin-bottom: 0.5em;
+      }
+       .comparison-table th, .comparison-table td {
+        padding: 6px;
+        font-size: 0.6em; /* Aún más pequeño en mobile si es necesario */
+      }
+       .comparison-table th {
+        font-size: 0.65em;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .reveal {
+        font-size: 12px; /* Aún más pequeño para celulares muy chicos */
+      }
+      .reveal h1 { font-size: 1.6em; }
+      .reveal h2 { font-size: 1.3em; }
+      /* Ajustes adicionales podrían ir aquí si se necesita más granularidad */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h2>Grupo 4</h2>
+        <h1>Transmisión Inalámbrica</h1>
+        <h3>En la Capa Física</h3>
+        <p style="font-size:0.8em; margin-top: 50px;">Análisis detallado para nuestra exposición final.</p>
+        <p class="slide-caption">¡Con esto nos recibimos!</p>
+      </section>
+
+      <section>
+        <h2><span class="highlight">🌍</span> Introducción a la Transmisión Inalámbrica</h2>
+        <p>La transmisión inalámbrica es la <span class="highlight">transferencia de información sin cables</span>, utilizando ondas electromagnéticas que se propagan por el espacio. Es la base de la conectividad moderna y la movilidad.</p>
+        <p>Opera en la <span class="highlight">Capa Física (Capa 1)</span> del modelo OSI y TCP/IP, encargándose de la correcta señalización, envío y recepción de bits "al aire".</p>
+        <p>Para un <span class="highlight">Analista de Sistemas</span>, comprender sus principios es vital para diseñar, implementar y solucionar problemas en redes que dependen de esta tecnología, cada vez más ubicua.</p>
+        <p>Nos enfocaremos en los <span class="highlight">medios no guiados</span>, sus frecuencias, desafíos y los estándares que las gobiernan.</p>
+      </section>
+
+      <section>
+        <h2><span class="highlight">🚀</span> Medios No Guiados: Canales del Aire</h2>
+        <ul>
+          <li><strong>Radiofrecuencia (RF):</strong>
+            <br><small>Ondas electromagnéticas en un amplio rango del espectro (típicamente 3 kHz a 300 GHz). <span class="highlight">Propagación omnidireccional o direccional</span> (con antenas específicas).
+            <br>Usos: Wi-Fi, Bluetooth, telefonía móvil, radio AM/FM, TV.
+            <br>Ventajas: Buena penetración de obstáculos comunes (paredes, muebles), movilidad.
+            <br>Desventajas: Susceptible a interferencias, seguridad inherente menor, ancho de banda compartido.</small>
+          </li>
+          <li><strong>Microondas:</strong>
+            <br><small>Tipo de RF de alta frecuencia (1 GHz a 300 GHz). Requieren <span class="highlight">línea de vista (LoS)</span> para enlaces terrestres punto a punto.
+            <br>Usos: Enlaces troncales (backhaul) de telefonía, comunicaciones satelitales, redes MAN/WAN.
+            <br>Ventajas: Gran ancho de banda, altas tasas de transferencia, útiles para largas distancias.
+            <br>Desventajas: Costo de infraestructura (torres, antenas), atenuación por lluvia ("rain fade"), latencia en satélites.</small>
+          </li>
+          <li><strong>Infrarrojo (IR):</strong>
+            <br><small>Ondas de luz no visible, con frecuencias justo debajo de la luz visible. Corto alcance (metros) y <span class="highlight">estrictamente LoS</span> (no atraviesan paredes).
+            <br>Usos: Controles remotos (TV, A/C), algunos sensores de movimiento (PIR), antiguamente transferencia de datos (IrDA).
+            <br>Ventajas: Bajo costo, inmune a interferencia RF, seguridad por confinamiento espacial.
+            <br>Desventajas: Corto alcance, baja velocidad de datos, afectado por luz solar directa intensa.</small>
+          </li>
+        </ul>
+        <p class="slide-caption">Cada medio presenta un balance entre alcance, velocidad, costo y susceptibilidad a interferencias.</p>
+      </section>
+
+      <section>
+        <h2><span class="highlight">📶</span> Frecuencias Clave en Wi-Fi</h2>
+        <p>Las redes Wi-Fi (IEEE 802.11) operan en bandas de frecuencia específicas, principalmente 2.4 GHz, 5 GHz y la más reciente, 6 GHz. La elección impacta directamente en el rendimiento.</p>
+        <div class="table-responsive-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Banda</th>
+                        <th>Espectro / Canales</th>
+                        <th>Propagación</th>
+                        <th>Ventajas Clave</th>
+                        <th>Desventajas Clave</th>
+                        <th>Usos Típicos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>2.4 GHz</strong></td>
+                        <td>~83.5 MHz <br><small>11-14 canales (3 no solapados de 20MHz)</small></td>
+                        <td>Mayor alcance, mejor penetración de obstáculos.</td>
+                        <td>Compatibilidad con dispositivos antiguos, menor costo.</td>
+                        <td><span class="highlight">Alta saturación e interferencia</span> (Bluetooth, microondas, otras Wi-Fi), menor velocidad.</td>
+                        <td>IoT, navegación básica, email, donde el alcance es prioritario.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5 GHz</strong></td>
+                        <td>~500 MHz (variable) <br><small>+20 canales no solapados (20/40/80/160MHz)</small></td>
+                        <td>Menor alcance, peor penetración de obstáculos.</td>
+                        <td><span class="highlight">Mayor velocidad y capacidad</span>, menos interferencias que 2.4GHz, más canales.</td>
+                        <td>Menor alcance, más sensible a obstáculos, canales DFS pueden restringir uso.</td>
+                        <td>Streaming HD/4K, gaming, transferencias grandes, entornos densos.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6 GHz</strong> <br><small>(Wi-Fi 6E)</small></td>
+                        <td>1200 MHz adicionales <br><small>Hasta 59 canales de 20MHz / 7 de 160MHz</small></td>
+                        <td>Similar a 5 GHz en alcance/penetración.</td>
+                        <td><span class="highlight">Muy alta velocidad</span>, muy baja latencia, mínima interferencia (banda "limpia").</td>
+                        <td>Requiere dispositivos Wi-Fi 6E/7, costo más elevado, alcance limitado.</td>
+                        <td>VR/AR, streaming 8K, gaming competitivo, aplicaciones industriales críticas.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="slide-caption">Entender las bandas permite optimizar la configuración de la red Wi-Fi.</p>
+      </section>
+
+      <section>
+        <h2><span class="highlight">⚠️</span> Desafíos en Transmisiones Inalámbricas</h2>
+        <p>Las señales inalámbricas son vulnerables a diversos fenómenos que degradan su calidad:</p>
+        <ul>
+          <li><strong>Atenuación:</strong> <small>Pérdida de potencia de la señal.</small>
+            <ul>
+              <li><span class="highlight">Distancia (FSPL):</span> La señal se debilita naturalmente al propagarse (ley del cuadrado inverso).</li>
+              <li><span class="highlight">Absorción:</span> Materiales como metal, agua, hormigón y vidrio especial (Low-E) absorben energía de RF.</li>
+              <li>Efectos: Alcance reducido, menor velocidad de datos, pérdida de conexión.</li>
+            </ul>
+          </li>
+          <li><strong>Interferencias:</strong> <small>Señales no deseadas que corrompen la señal útil.</small>
+            <ul>
+              <li><span class="highlight">Co-Canal (CCI):</span> APs cercanos en el mismo canal compiten por el medio.</li>
+              <li><span class="highlight">Canal Adyacente (ACI):</span> Canales solapados (crítico en 2.4 GHz) se interfieren.</li>
+              <li><span class="highlight">Fuentes No Wi-Fi (EMI):</span> Hornos microondas, Bluetooth, USB 3.0 mal apantallado, luces fluorescentes defectuosas, motores.</li>
+              <li>Efectos: Velocidad reducida (retransmisiones), alta latencia, conexiones inestables.</li>
+            </ul>
+          </li>
+          <li><strong>Obstáculos y Propagación Multi-trayecto (Multipath):</strong> <small>Interacción de la señal con el entorno.</small>
+            <ul>
+              <li>Fenómenos: <span class="highlight">Reflexión</span> (rebote), <span class="highlight">Difracción</span> (curvatura), <span class="highlight">Dispersión</span> (división).</li>
+              <li><span class="highlight">Multipath:</span> La señal llega al receptor por múltiples caminos, con distintos retardos y fases.
+              <br><small>Puede causar <span class="highlight">Interferencia Inter-Simbólica (ISI)</span> o desvanecimiento (fading), afectando la integridad de los datos.</small></li>
+              <li>Tecnologías como OFDM y MIMO ayudan a mitigar o aprovechar el multipath.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="highlight">🔄</span> Estándares IEEE 802.11: La Evolución del Wi-Fi</h2>
+        <p>La familia de estándares IEEE 802.11 define cómo operan las redes Wi-Fi, evolucionando para ofrecer mayor velocidad, eficiencia y robustez.</p>
+        <div class="table-responsive-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Estándar</th>
+                        <th>Alias</th>
+                        <th>Año Aprox.</th>
+                        <th>Frecuencia(s)</th>
+                        <th>Vel. Máx. Teórica</th>
+                        <th>Tecnologías Clave / Mejoras</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>802.11 (legacy)</td>
+                        <td>-</td>
+                        <td>1997</td>
+                        <td>2.4 GHz</td>
+                        <td>2 Mbps</td>
+                        <td>FHSS, DSSS (base)</td>
+                    </tr>
+                    <tr>
+                        <td>802.11b</td>
+                        <td>(Wi-Fi 1)</td>
+                        <td>1999</td>
+                        <td>2.4 GHz</td>
+                        <td>11 Mbps</td>
+                        <td>DSSS, HR-DSSS</td>
+                    </tr>
+                    <tr>
+                        <td>802.11a</td>
+                        <td>(Wi-Fi 2)</td>
+                        <td>1999</td>
+                        <td>5 GHz</td>
+                        <td>54 Mbps</td>
+                        <td><span class="highlight">OFDM</span> (reduce multipath)</td>
+                    </tr>
+                    <tr>
+                        <td>802.11g</td>
+                        <td>(Wi-Fi 3)</td>
+                        <td>2003</td>
+                        <td>2.4 GHz</td>
+                        <td>54 Mbps</td>
+                        <td>OFDM, compatibilidad con 'b'</td>
+                    </tr>
+                    <tr>
+                        <td>802.11n</td>
+                        <td>Wi-Fi 4</td>
+                        <td>2009</td>
+                        <td>2.4 / 5 GHz</td>
+                        <td>~600 Mbps</td>
+                        <td><span class="highlight">MIMO</span> (múltiples flujos), Channel Bonding (40MHz), Frame Aggregation</td>
+                    </tr>
+                    <tr>
+                        <td>802.11ac</td>
+                        <td>Wi-Fi 5</td>
+                        <td>2013</td>
+                        <td>5 GHz</td>
+                        <td>~1.3-6.93 Gbps</td>
+                        <td><span class="highlight">MU-MIMO (DL)</span>, Beamforming, Channel Bonding (80/160MHz)</td>
+                    </tr>
+                    <tr>
+                        <td>802.11ax</td>
+                        <td>Wi-Fi 6/6E</td>
+                        <td>2019/2020</td>
+                        <td>2.4 / 5 / 6 GHz (6E)</td>
+                        <td>~9.6 Gbps</td>
+                        <td><span class="highlight">OFDMA</span> (eficiencia en alta densidad), TWT, BSS Coloring, MU-MIMO (UL/DL), WPA3</td>
+                    </tr>
+                     <tr>
+                        <td>802.11be</td>
+                        <td>Wi-Fi 7</td>
+                        <td>~2024</td>
+                        <td>2.4 / 5 / 6 GHz</td>
+                        <td>~46 Gbps</td>
+                        <td><span class="highlight">MLO</span> (Multi-Link Operation), Canales 320MHz, 4K-QAM, Punctured Transmission</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="slide-caption">Cada generación aborda desafíos previos y las crecientes demandas de conectividad.</p>
+      </section>
+
+      <section>
+        <h2><span class="highlight">🔹</span> Conclusión: Claves para el Analista de Sistemas</h2>
+        <p>La transmisión inalámbrica, pilar de la comunicación actual, presenta una dinámica compleja que como Analistas de Sistemas debemos dominar:</p>
+        <ul>
+          <li>Seleccionar el <span class="highlight">medio no guiado</span> y la <span class="highlight">banda de frecuencia</span> (2.4, 5, o 6 GHz) es una decisión de diseño crítica basada en los requisitos de alcance, velocidad y densidad del entorno.</li>
+          <li>Identificar y mitigar proactivamente la <span class="highlight">atenuación, las fuentes de interferencia y los efectos de obstáculos</span> es esencial para una red robusta y confiable. Esto incluye una correcta planificación de la ubicación de APs (Site Survey).</li>
+          <li>Aprovechar los <span class="highlight">estándares IEEE 802.11</span> más recientes (Wi-Fi 6/6E, Wi-Fi 7) permite implementar redes más eficientes, seguras y con mayor capacidad, especialmente en entornos congestionados o con alta demanda.</li>
+          <li>La <span class="highlight">seguridad (WPA3)</span> y la <span class="highlight">gestión del espectro (canales DFS)</span> son consideraciones ineludibles.</li>
+        </ul>
+        <p>Un diseño e implementación informados resultan en redes inalámbricas que cumplen con las expectativas de los usuarios y los objetivos del negocio.</p>
+        <h3 style="margin-top:30px; color: var(--accent-color);">¡Muchas Gracias! ¿Preguntas?</h3>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.min.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      plugins: [ RevealZoom, RevealNotes ],
+      slideNumber: 'c/t',
+      controlsLayout: 'edges',
+      navigationMode: 'linear',
+      width: "100%", // Asegurar que use todo el ancho disponible
+      height: "100%", // Asegurar que use todo el alto disponible
+      margin: 0.04, // Margen global pequeño
+      minScale: 0.2, // Escala mínima para mobile
+      maxScale: 1.5  // Escala máxima
+    });
+  </script>
+</body>
+</html>
